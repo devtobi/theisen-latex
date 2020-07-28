@@ -1619,3 +1619,5 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/c,vue,c++,tex,node,sass,java,dart,vuejs,react,latex,maven,dotenv,gradle,python,android,angular,pycharm,flutter,intellij,wordpress,objective-c,visualstudio,androidstudio,visualstudiocode
+
+main.pdf

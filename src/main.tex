@@ -1,0 +1,112 @@
+% Import der Config-Variablen
+\include{config}
+
+\documentclass[\mainsize, a4paper]{scrartcl}
+
+% Anpassungen für deutsche Sprache
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+% Grafiken
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Textschriftart ändern
+\usepackage{lmodern}
+
+% Seitenränder festlegen
+\usepackage[a4paper,left=4cm,right=2cm,top=3.8cm,bottom=2cm]{geometry}
+
+% 1,5 Zeilenabstand konfigurieren
+\usepackage[onehalfspacing]{setspace}
+
+% Verlinkungen und PDF Daten initialisieren
+\usepackage{hyperref}
+\hypersetup{
+	pdftitle = {\thesistitle}
+	pdfauthor = {\thesisauthor}
+	pdfcreator = {pdflatex}
+	pdfkeywords={\thesistype, \thesistitle}
+	pdfsubject={\thesistype}
+	pdfproducer = {LaTeX with hyperref}
+}
+
+% Leere Seiten clearen + Überschriftenkonfiguration
+%\usepackage[clearempty]{titlesec}
+% \titlelabel{\thetitle\quad}
+
+% Zeileneinschub mit Abstand ersetzen
+\usepackage{parskip}
+
+% Fußnoten konfigurieren
+\usepackage[perpage, flushmargin, hang]{footmisc}
+
+% Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
+\usepackage{tocbibind}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsubsecindent}{\idxsubsecindent}
+\setlength{\cftsubsubsecindent}{\idxsubsubsecindent}
+
+% Schönere Seitenangaben
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[EL,OR]{\thepage}
+\fancyhead[ER]{\chaptername~\thechapter}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+
+% Namensnennungen kursiv schreiben
+\usepackage{xpatch}
+\xpatchcmd{\citeauthor}{\begingroup}{\begingroup\em}{}{}
+
+\begin{document}
+	
+	%Seitenränder abschalten
+	\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+	
+	%Deckblatt einbinden
+	\include{titlepage}
+	
+	%Seitenränder restaurieren
+	\restoregeometry
+	
+	%Leere Seite einfügen
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	\newpage
+	
+	%Seitenangaben aktivieren
+	\pagestyle{fancy}
+	
+	%Vorverzeichnisse einbinden
+	\include{preindex}
+	
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+ 
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+\section{Neue Section}
+   
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla failisi.\footnote{Hallo das ist ein Text in der Fußnote und dieser Text hat lediglich die Schriftgröße 10, aber ist schon cool wenn es so gut funktioniert}
+   
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.\footnote{Hallo das ist ein Text in der Fußnote und dieser Text hat lediglich die Schriftgröße 10, aber ist schon cool wenn es so gut funktioniert}
+  
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.\footnote{Hallo das ist ein Text in der Fußnote und dieser Text hat lediglich die Schriftgröße 10, aber ist schon cool wenn es so gut funktioniert}
+  
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+
+\section{Nochmal neue Section}
+   
+Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. 
+  
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+   
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+ 
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\footnote{Hallo das ist ein Text in der Fußnote und dieser Text hat lediglich die Schriftgröße 10, aber ist schon cool wenn es so gut funktioniert.}   
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+	
+\end{document}
