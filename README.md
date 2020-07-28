@@ -12,17 +12,12 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-![Current release][release-shield]
 ![Last commit][commit-shield]
 [![Issues][issues-shield]][issues-url]
 
 [![Stargazers][stars-shield]][stars-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
-
-![Dependencies][dependency-shield]
-
-![Size][size-shield]
 [![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
@@ -56,10 +51,6 @@
 
 ## About The Project
 
-<p align="center">
-  <img src="docs/images/product-screenshot.png" alt="Product Screenshot" width="500" height="300">
-</p>
-
 This LaTex template was created for writing a bachelor or master thesis and is based on the principles taught in the book 'Wissenschaftliches Arbeiten' by Manuel René Theisen.
 The link to the book can be found <a href="http://www.vahlen.de/productview.aspx?product=12059810">here</a>.
 <br>
@@ -73,7 +64,7 @@ The link to the book can be found <a href="http://www.vahlen.de/productview.aspx
 ## Contributing
 
 Please read [CONTRIBUTING.md][contributing-url] for details about the process for submitting pull requests to us.
-The Code of Conduct can be found in [CODE_OF_CONDUCT.md][code-of-conduct-url]
+The Code of Conduct can be found in [CODE_OF_CONDUCT.md][code-of-conduct-url].
 
 <!-- AUTHORS -->
 
@@ -104,8 +95,6 @@ Distributed under the MIT License. See [LICENSE][license-url] for more informati
 [issues-url]: https://github.com/devtobi/theisen-latex/issues
 [license-shield]: https://img.shields.io/github/license/devtobi/theisen-latex.svg?style=flat-square
 [license-url]: https://github.com/devtobi/theisen-latex/blob/master/LICENSE
-[size-shield]: https://img.shields.io/github/size/devtobi/theisen-latex.svg?style=flat-square
-[release-shield]: https://img.shields.io/github/v/release/devtobi/theisen-latex?sort=semver&style=flat-square
 [commit-shield]: https://img.shields.io/github/last-commit/devtobi/theisen-latex?style=flat-square
 
 <!-- THIRD PARTY BADGES -->
