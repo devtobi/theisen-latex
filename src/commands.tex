@@ -1,0 +1,12 @@
+% Befehl um Textbox für den Druck zu generieren
+\newcommand{\calibrationbox}[2]{% parameters: #1=width, #2=height
+	\setlength{\unitlength}{1.0mm}%
+	\begin{picture}(#1,#2)%
+	\linethickness{0.05mm}%
+	\put(0,0){\dashbox{0.2}(#1,#2)%
+	{\parbox{#1mm}{%
+	\centering\footnotesize 
+	width $ = #1 \textrm{mm}$\\
+	height $ = #2 \textrm{mm}$
+	}}}\end{picture}
+}
