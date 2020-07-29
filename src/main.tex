@@ -24,6 +24,7 @@
 % Grafiken
 \usepackage{graphicx}
 \graphicspath{{images/}}
+\usepackage{float}
 
 % Textschriftart ändern
 \usepackage{lmodern}
@@ -137,7 +138,7 @@
 	%Vorverzeichnisse einbinden
 	\include{preindex}
 
-	%Übungstext
+	%Testtext
 	\section{Beispiele}\label{sec:beispiel}
 	
 	Lorenawdawdwadz awod awd aiwd awdu awoud awduioawud oiawudoawuoduawoduawoidiuawduawodu awd awd awudwad uawdawiduawdawd adwaddwda\footnote{Testfußnote}
@@ -146,7 +147,7 @@
 	
 	Einzelnes Bild
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\begin{minipage}{0.6\textwidth}
 			\centering
@@ -157,9 +158,9 @@
   		\label{fig:logo}
 	\end{figure}
 	
-	Subfigures\autoref{subsec:abbildungen}
+	Subfigures siehe \autorefpage{fig:coffee}
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
   		\centering
   		\begin{subfigure}[b]{0.4\textwidth}
     		\includegraphics[width=\textwidth]{logo}
@@ -173,7 +174,9 @@
   		\label{fig:coffee}
 	\end{figure}
 	
-	\begin{figure}[h]
+	Unabhängige Bilder (aber nebeneinander)
+	
+	\begin{figure}[H]
 		\centering
 		\begin{minipage}{.5\textwidth}
   			\centering
@@ -220,7 +223,6 @@
 	\end{enumerate}
 	
 	Weitere Umgebungen sind compactenum und compactitem
-	\euro{}
 	
 	\subsection{Tabellen}\label{subsec:tables}
 	
