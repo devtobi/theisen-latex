@@ -14,5 +14,8 @@
 % Eigener Befehl für autoref + Seitenangabe
 \newcommand{\autorefpage}[1]{\autoref{#1} (S. \pageref{#1})}
 
-% Befehl für Quellenangaben direkt unter dem Bild
-\newcommand*{\source}[1]{\par\raggedleft\footnotesize \textit{Quelle}:~#1}
+% Befehl für Quellenangaben direkt unter dem Bild (rechts)
+\newcommand*{\sourceright}[1]{\par\raggedleft\footnotesize \textit{Quelle}:~#1}
+
+% Befehl für Quellenangaben direkt unter dem Bild (zentriert)
+\newcommand*{\sourcecenter}[1]{\par\centering\footnotesize \textit{Quelle}:~#1}

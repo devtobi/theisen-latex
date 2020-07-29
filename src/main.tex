@@ -19,7 +19,7 @@
 \usepackage[ngerman]{babel}
 
 % Mehr Farben zulassen
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
 
 % Grafiken
 \usepackage{graphicx}
@@ -72,7 +72,7 @@
 % Einbinden von PDFs
 \usepackage{pdfpages}
 
-% Beschriftung von Bildern
+% Beschriftung von Bildern/Tabellen/Listings usw.
 \usepackage[
 	format=plain,
 	margin=0.5cm,
@@ -96,6 +96,9 @@
 % Euro-Zeichen
 \usepackage[official]{eurosym}
 
+% Akürzungen
+\usepackage[footnote, printonlyused, smaller]{acronym}
+
 % Verlinkungen und PDF Daten initialisieren
 \usepackage{hyperref}
 \hypersetup{
@@ -109,6 +112,7 @@
 	linktoc = all,
 	linkbordercolor = {0 0 0.5}
 }
+\usepackage[all]{hypcap}
 
 \begin{document}
 
@@ -152,7 +156,7 @@
 		\begin{minipage}{0.6\textwidth}
 			\centering
 			\fbox{\includegraphics[width=\textwidth]{logo}}
-			\source{Hier cite einfügen}
+			\sourceright{Hier cite einfügen}
 		\end{minipage}
 		\caption{Logo der Hochschule München}
   		\label{fig:logo}
@@ -226,6 +230,32 @@
 	
 	\subsection{Tabellen}\label{subsec:tables}
 	
+	Im folgenden eine Tabelle mit 2 Spalten und mehreren Zeilen sowie einer alternierenden Zeilenfarbe
 	
+	\begin{table}[H]
+		\centering
+		\caption{Beispieltabelle}
+		\label{tab:test}
+		\rowcolors{2}{gray!25}{white}
+		\begin{tabular}{|c|c|}
+    		\rowcolor{gray!50}
+    		\hline
+    		Table head & Table head\\
+    		Some values & Some values\\
+    		Some values & Some values\\
+    		Some values & Some values\\
+    		Some values & Some values\\
+    		\hline
+  		\end{tabular}
+		\sourcecenter{Das ist einfach nur ein Test}
+	\end{table}
+	
+	\subsection{Abkürzungen}\label{subsec:abbrev}
+	
+	Das ist ein \ac{html}
+	
+	\newpage
+	
+	Das ist immer noch ein \ac{html}. \acp{dr} sind auch ganz toll.
 	
 \end{document}
