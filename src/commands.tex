@@ -19,3 +19,13 @@
 
 % Befehl für Quellenangaben direkt unter dem Bild (zentriert)
 \newcommand*{\sourcecenter}[1]{\par\centering\footnotesize \textit{Quelle}:~#1}
+
+% Befehle für das inkludieren von Source Files
+\newcommand{\includecode}[3]{\lstinputlisting[caption=#2, language=#1,label=lst:#3]{code/#3}}
+
+\newcommand{\includewebcode}[2]{\lstinputlisting[caption=#1, style=htmlcssjs,label=lst:#2]{code/#2}}
+
+
+% Befehle für das Hinzufügen eines Eintrages in das Formelverzeichnis
+\newcommand{\equationentry}[1]{%
+\addcontentsline{equ}{equations}{\protect\numberline{\theequation}#1}\par}

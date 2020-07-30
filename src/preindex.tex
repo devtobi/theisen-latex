@@ -8,7 +8,6 @@
 
 % Inhaltsverzeichnis einfügen
 \tableofcontents
-
 \newpage
 
 % Abbildungsverzeichnis einfügen
@@ -19,7 +18,23 @@
 \listoftables
 \newpage
 
+\renewcommand{\lstlistoflistings}{\begingroup
+\tocfile{\lstlistingname}{lol}
+\endgroup}
+\renewcommand{\lstlistingname}{Quellcodeverzeichnis}
+\lstlistoflistings
+\newpage
+
 % Abkürzungsverzeichnis einfügen
 \input{abbrev}
+\newpage
+
+% Formelverzeichnis erstellen
+\newlistof{equations}{equ}{Formelverzeichnis}
+\renewcommand{\listofequations}{\begingroup
+\tocfile{Formelverzeichnis}{equ}
+\endgroup}
+\listofequations
+\newpage
 
 \endgroup
