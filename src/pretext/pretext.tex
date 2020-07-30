@@ -1,0 +1,12 @@
+%Einfügen eines Mottos, Sprichtworts, Zitat einer Persönlichkeit
+\pagestyle{empty}
+\input{pretext/motto}
+\newpage
+
+% Einfügen eines Vorworts
+\pagestyle{fancy}
+\markboth{\preamblename}{\preamblename}
+\phantomsection
+\addcontentsline{toc}{section}{\protect \preamblename}
+\input{pretext/vorwort}
+\newpage
