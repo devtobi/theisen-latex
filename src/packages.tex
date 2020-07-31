@@ -58,7 +58,7 @@
 \setlength{\mathindent}{1cm}
 
 % Automatisches Setzen von Anführungszeichen (\enquote, \foreignquote, \blockquote)
-\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage[autostyle=true,german=quotes,babel]{csquotes}
 
 % Einbinden von PDFs
 \usepackage{pdfpages}
@@ -217,8 +217,8 @@
 %%% === ENDE LISTINGS === %%%
 
 % Chicago-Style als Zitierstil nutzen
-%\usepackage[notes,backend=biber]{biblatex-chicago}
-%\bibliography{\bibfilename}
+\usepackage[notes,natbib,backend=biber]{biblatex-chicago}
+\addbibresource{bibliography.bib}
 
 % Verlinkungen und PDF Daten initialisieren
 \usepackage{hyperref}
