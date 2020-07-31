@@ -1,0 +1,48 @@
+\subsection{Bilder/Abbildungen}\label{subsec:abbildungen}
+	
+Einzelnes Bild
+	
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.6\textwidth}
+		\centering
+		\fbox{\includegraphics[width=\textwidth]{2_beispiele/hm}}
+		\sourceright{Hier die Quelle einfügen}
+	\end{minipage}
+	\caption{Logo der Hochschule München}
+  	\label{fig:logo}
+\end{figure}
+	
+Subfigures siehe \autorefpage{fig:coffee}
+	
+\begin{figure}[H]
+  	\centering
+  	\begin{subfigure}[b]{0.4\textwidth}
+    	\includegraphics[width=\textwidth]{example-image}
+    	\caption{A logo.}
+  	\end{subfigure}
+  	\begin{subfigure}[b]{0.4\textwidth}
+    	\includegraphics[width=\textwidth]{example-image}
+    	\caption{More logo.}
+  	\end{subfigure}
+  	\caption{The same cup of coffee. Two times.}
+  	\label{fig:coffee}
+\end{figure}
+	
+Unabhängige Bilder (aber nebeneinander)
+	
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\includegraphics[width=\textwidth]{example-image}
+  		\caption{A figure}
+  		\label{fig:test1}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+  		\centering
+  		\includegraphics[width=\textwidth]{example-image}
+  		\caption{figure}
+  		\label{fig:test2}
+	\end{minipage}
+\end{figure}

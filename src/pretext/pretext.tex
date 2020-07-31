@@ -2,11 +2,32 @@
 \pagestyle{empty}
 \input{pretext/motto}
 \newpage
+\pagestyle{fancy}
+
+% Einfügen eines Geleitworts
+\markboth{Geleitwort}{Geleitwort}
+\phantomsection
+\addcontentsline{toc}{section}{\protect Geleitwort}
+\input{pretext/geleitwort}
+\newpage
 
 % Einfügen eines Vorworts
-\pagestyle{fancy}
 \markboth{\preamblename}{\preamblename}
 \phantomsection
 \addcontentsline{toc}{section}{\protect \preamblename}
 \input{pretext/vorwort}
+\newpage
+
+% Einfügen der Kurzzusammenfassung
+\markboth{Kurzzusammenfassung}{Kurzzusammenfassung}
+\phantomsection
+\addcontentsline{toc}{section}{\protect Kurzzusammenfassung}
+\input{pretext/kurzzusammenfassung}
+\newpage
+
+% Einfügen des Abstract
+\markboth{Abstract}{Abstract}
+\phantomsection
+\addcontentsline{toc}{section}{\protect Abstract}
+\input{pretext/abstract}
 \newpage

@@ -4,249 +4,21 @@
 % Import der Befehle
 \include{commands}
 
+% Festlegen der Dokumentenklasse
+\documentclass[\maintextsize, \papersize, fleqn, xcolor=dvipsnames]{scrartcl}
+
 % Metadatenangaben
 \author{\thesisauthor}
 \title{\thesistitle}
 
-\documentclass[\maintextsize, \papersize, fleqn, xcolor=dvipsnames]{scrartcl}
-
-% PDF-Inhalt such- und kopierbar machen
-\usepackage[resetfonts]{cmap}
-
-% Anpassungen für deutsche Sprache
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
-
-% Mehr Farben zulassen
-\usepackage[table,dvipsnames]{xcolor}
-
-% Grafiken
-\usepackage{graphicx}
-\graphicspath{{images/}}
-\usepackage{float}
-
-% Textschriftart ändern
-\usepackage{lmodern}
-
-% Verbessertes Fontrendering
-\usepackage[final]{microtype}
-
-% Seitenränder festlegen
-\usepackage[\papersize,left=\leftpapermargin,right=\rightpapermargin,top=\toppapermargin,bottom=\bottompapermargin]{geometry}
-
-% 1,5 Zeilenabstand konfigurieren
-\usepackage[onehalfspacing]{setspace}
-
-% Zeileneinschub mit Abstand ersetzen
-\usepackage{parskip}
-
-% Fußnoten konfigurieren
-\usepackage[perpage, flushmargin, hang]{footmisc}
-
-% Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
-\usepackage{tocbibind}
-\usepackage{tocloft}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\setlength{\cftsubsecindent}{\idxsubsecindent}
-\setlength{\cftsubsubsecindent}{\idxsubsubsecindent}
-\setlength{\cftbeforesecskip}{3pt}
-
-% Schönere Seitenangaben
-\usepackage{fancyhdr}
-\fancyhf{}
-\fancyhead[EL,OR]{\thepage}
-\fancyhead[ER]{\chaptername~\thechapter}
-\fancyhead[LO]{\nouppercase{\leftmark}}
-
-% Namensnennungen kursiv schreiben
-\usepackage{xpatch}
-\xpatchcmd{\citeauthor}{\begingroup}{\begingroup\em}{}{}
-
-% Mathematik-Pakete
-\usepackage{amsmath,amsthm,amssymb}
-\setlength{\mathindent}{1cm}
-
-% Automatisches Setzen von Anführungszeichen (\enquote, \foreignquote, \blockquote)
-\usepackage[autostyle=true,german=quotes]{csquotes}
-
-% Einbinden von PDFs
-\usepackage{pdfpages}
-
-% Beschriftung von Bildern/Tabellen/Listings usw.
-\usepackage[
-	format=plain,
-	margin=0.5cm,
-	labelformat=simple,
-	labelfont={bf},
-	font=footnotesize
-]{caption}
-
-% Erlaubt die Erstellung von zusammengesetzten Grafiken
-\usepackage{subcaption}
-
-% Leere Anfangs- und Endzeilen vermeiden
-\usepackage[defaultlines=4,all]{nowidow}
-
-% Bessere Aufzählungen
-\usepackage{paralist}
-
-% Bessere Tabellen
-\usepackage{booktabs}
-
-% Euro-Zeichen
-\usepackage[official]{eurosym}
-
-% Abkürzungen
-\usepackage[footnote, printonlyused, smaller]{acronym}
-
-%%% === LISTINGS === %%%
-\usepackage{listings}
-\usepackage{beramono}
-
-% CSS als Sprache definieren
-\lstdefinelanguage{CSS}{
-  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
-  sensitive=true,
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  alsoletter={:},
-  alsodigit={-}
-}
-
-% JavaScript als Sprache definieren
-\lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, null, true, false, switch, this, throw, try, typeof, var, void, while, with},
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  sensitive=true,
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]"
-}
-
-% HTML5 als Sprache definieren
-\lstdefinelanguage{HTML5}{
-  language=html,
-  sensitive=true,	
-  alsoletter={<>=-},	
-  morecomment=[s]{<!-}{-->},
-  tag=[s],
-  otherkeywords={
-  % General
-  >,
-  % Standard tags
-	<!DOCTYPE,
-  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
-	% body
-	</body, <body,
-	% Divs
-	</div, <div, </div>,
-	% headings
-	</h1, <h1, </h1>,
-	</h2, <h2, </h2>, 
-	</h3, <h3, </h3>, 
-	</h4, <h4, </h4>, 
-	</h5, <h5, </h5>,
-	</h6, <h6, </h6>,  
-	% Paragraphs
-	</p, <p, </p>,
-	% scripts
-	</script, <script,
-  % More tags...
-  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
-  },
-  ndkeywords={
-  % General
-  =,
-  % HTML attributes
-  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
-  % SVG attributes
-  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
-  % properties
-  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
-	% CSS3 properties
-  transform:, -moz-transform:, -webkit-transform:,
-  animation:, -webkit-animation:,
-  transition:,  transition-duration:, transition-property:, transition-timing-function:,
-  }
-}
-
-% Kombination aus HTML,CSS,JS als Style definieren
-\lstdefinestyle{htmlcssjs} {%
-  % Code
-  language=HTML5,
-  alsolanguage=JavaScript,
-  alsodigit={.:;},	
-}
-
-\lstset{
-	breaklines=true,
-	breakatwhitespace=false,
-	captionpos=b,
-	frame=shadowbox,
-	columns=flexible,
-	keepspaces=false,
-	numbers=left,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	identifierstyle=\color{black},
-	ndkeywordstyle=\color{MidnightBlue}\bfseries,
-	basicstyle=\footnotesize\ttfamily,
-	numberstyle=\color{Gray},
-	keywordstyle=\bfseries\color{RoyalBlue},
-	commentstyle=\color{ForestGreen},
-	stringstyle=\color{Orange},
-	xleftmargin={0.75cm},
-	tabsize=2,
-	extendedchars=true,
-	inputencoding=utf8,
-	resetmargins=true,
-	rulesepcolor=\color{lightgray},
-	literate=
-  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
-  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
-  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
-  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
-}
-
-%%% === ENDE LISTINGS === %%%
-
-% Verlinkungen und PDF Daten initialisieren
-\usepackage{hyperref}
-\hypersetup{
-	pdftitle = {\thesistitle},
-	pdfauthor = {\thesisauthor},
-	pdfcreator = {pdflatex},
-	pdfkeywords={\thesistype, \thesistitle},
-	pdfsubject={\thesistype},
-	pdfproducer = {LaTeX with hyperref},
-	colorlinks = false,
-	linktoc = all,
-	linkbordercolor = {0 0 0.5},
-}
-\usepackage[all]{hypcap}
-
-%%% === ENDE DER KONFIGURATION === %%%
-
-
+% Einbinden der Abhängigkeiten
+\include{packages}
 
 %%% === BEGINN DES DOKUMENTS === %%%
-
 \begin{document}
+
+%Auf Deutsch stellen
+\selectlanguage{ngerman}
 
 %Namen der autoref generierten Verweise ändern
 \renewcommand{\sectionautorefname}{Kapitel}
@@ -263,6 +35,9 @@
 %Leere Seite einfügen (Hier könnte z.B die handschriftliche Widmung stehen)
 \mbox{}
 \newpage
+
+%Sperrvermerk einbinden
+\include{sperrvermerk}
 	
 %Seitenangaben aktivieren
 \pagestyle{fancy}
@@ -273,154 +48,17 @@
 %Vortexte einbinden
 \include{pretext/pretext}
 
-%Testtext
-\section{Beispiele}\label{sec:beispiel}
-	
-Lorenawdawdwadz awod awd aiwd awdu awoud awduioawud oiawudoawuoduawoduawoidiuawduawodu awd awd awudwad uawdawiduawdawd adwaddwda\footnote{Testfußnote}
+%Text einbinden
+\include{sections/sections}
+		
+%Nachtexte einbinden
+\include{posttext/posttext}
 
-\subsection{Formeln}\label{subsec:formulas}
+%Eidesstattliche Erklärung einbinden	
+\include{erklaerung}
 
-\begin{equation}\label{equ:relativitätstheorie}
-	x^2 + mx + t = 0
-\end{equation}
-\equationentry{Geradengleichung}
-
-Siehe \autoref{equ:relativitätstheorie}
+%Kalibrierungsbox einbinden (Vor dem Binden das entfernen der Seite nicht vergessen)
+\calibrationbox{140}{100}
 	
-\subsection{Bilder/Abbildungen}\label{subsec:abbildungen}
-	
-Einzelnes Bild
-	
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{0.6\textwidth}
-		\centering
-		\fbox{\includegraphics[width=\textwidth]{logo}}
-		\sourceright{Hier cite einfügen}
-	\end{minipage}
-	\caption{Logo der Hochschule München}
-  	\label{fig:logo}
-\end{figure}
-	
-Subfigures siehe \autorefpage{fig:coffee}
-	
-\begin{figure}[H]
-  	\centering
-  	\begin{subfigure}[b]{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{logo}
-    	\caption{A logo.}
-  	\end{subfigure}
-  	\begin{subfigure}[b]{0.4\textwidth}
-    	\includegraphics[width=\textwidth]{logo}
-    	\caption{More logo.}
-  	\end{subfigure}
-  	\caption{The same cup of coffee. Two times.}
-  	\label{fig:coffee}
-\end{figure}
-	
-Unabhängige Bilder (aber nebeneinander)
-	
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{.5\textwidth}
-  		\centering
-  		\includegraphics[width=\textwidth]{logo}
-  		\caption{A figure}
-  		\label{fig:test1}
-	\end{minipage}%
-	\begin{minipage}{.5\textwidth}
-  		\centering
-  		\includegraphics[width=\textwidth]{logo}
-  		\caption{figure}
-  		\label{fig:test2}
-	\end{minipage}
-\end{figure}
-	
-\subsection{Aufzählungen}\label{subsec:lists}
-	
-Aufzählungen ohne voranstehende Beschriftung
-	
-\begin{description}
-	\item{Item 1}
-	\item{Item 2}
-	\item{Item 3}
-\end{description}
-	
-Ungeordnete Aufzählungen
-	
-\begin{itemize}
-	\item{Item 1}
-	\item{Item 2}
-	\item{Item 3}
-\end{itemize}
-	
-Geordnete Aufzählungen 
-	
-\begin{enumerate} %[a/1/I/A] optional
-	\item{Item 1}
-	\begin{enumerate}
-		\item Auch verschachtelt möglich
-		\item Auch verschachtelt möglich
-	\end{enumerate}
-	\item{Item 2}
-	\item{Item 3}
-\end{enumerate}
-	
-Weitere Umgebungen sind compactenum und compactitem
-	
-\subsection{Tabellen}\label{subsec:tables}
-	
-Im folgenden eine Tabelle mit 2 Spalten und mehreren Zeilen sowie einer alternierenden Zeilenfarbe
-	
-\begin{table}[H]
-	\centering
-	\caption{Beispieltabelle}
-	\label{tab:test}
-	\rowcolors{2}{gray!25}{white}
-	\begin{tabular}{|c|c|}
-    	\rowcolor{gray!50}
-    	\hline
-    	Table head & Table head\\
-    	Some values & Some values\\
-    	Some values & Some values\\
-    	Some values & Some values\\
-    	Some values & Some values\\
-    	\hline
-  	\end{tabular}
-	\sourcecenter{Das ist einfach nur ein Test}
-\end{table}
-	
-\subsection{Abkürzungen}\label{subsec:abbrev}
-	
-Das ist ein \ac{html}
-	
-\newpage
-	
-Das ist immer noch ein \ac{html}. \acp{dr} sind auch ganz toll.
-	
-\subsection{Source-Code}\label{subsec:code}
-	
-\begin{lstlisting}[style=htmlcssjs,float=h,caption={JavaScript Hello World Beispiel},label=lst:hello]
-var x = "Hello World" //Das ist ein einfacher String
-console.log(x.toUppercase());
-/* Dieser Code ist sehr cool aber
-effektiv bringt er eigentlich nichts. Hähäh */
-\end{lstlisting}
-	
-\autoref{lst:hello} ist ziemlich cool.
-
-\begin{lstlisting}[style=htmlcssjs,float=h,caption={Einfaches HTML Beispiel},label=lst:html]
-<!DOCTYPE html>
-<html>
-	<body class="Hallo">
-		<h1>My First Heading</h1>
-		<p>My first paragraph.</p>
-	</body>
-</html>
-\end{lstlisting}
-
-\includewebcode{Das ist ein Beispiel}{test.html}
-
-Ich versuche jetzt mal ein autoref auf \autoref{lst:test.html}
-	
+%%% === ENDE DES DOKUMENTS === %%%
 \end{document}
