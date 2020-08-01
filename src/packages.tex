@@ -33,6 +33,7 @@
 
 % Fußnoten konfigurieren
 \usepackage[perpage, flushmargin, hang]{footmisc}
+\setlength{\footnotemargin}{4mm}
 
 % Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
 \usepackage{tocbibind}
@@ -216,11 +217,30 @@
 
 %%% === ENDE LISTINGS === %%%
 
-% Chicago-Style als Zitierstil nutzen
-\usepackage[notes,natbib,backend=biber]{biblatex-chicago}
+% Literaturverzeichnis & Chicago-Stil einrichten
+\usepackage[
+authordate,
+backend=biber,
+bibencoding=inputenc,
+language=ngerman,
+footmarkoff,
+alwaysrange=true,
+natbib,
+]{biblatex-chicago}
+\renewcommand*{\finentrypunct}{}
+\setlength\bibitemsep{0pt}
+\setlength\bibinitsep{10pt}
+\renewcommand{\mkbibnamelast}[1]{\mkbibemph{#1}}
+\renewcommand{\mkbibnamefirst}[1]{\mkbibemph{#1}}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\renewcommand{\UrlFont}{\footnotesize\ttfamily}
+\renewcommand{\postnotedelim}{%
+  \iffieldpages{postnote}
+    {\addcomma\space S.}
+    {\addspace}}
 \addbibresource{bibliography.bib}
 
-% Verlinkungen und PDF Daten initialisieren
+%Verlinkungen und PDF Daten initialisieren
 \usepackage{hyperref}
 \hypersetup{
 	pdftitle = {\thesistitle},
@@ -232,6 +252,7 @@
 	colorlinks = false,
 	linktoc = all,
 	linkbordercolor = {0 0 0.5},
+	hyperfootnotes = true
 }
 \usepackage[all]{hypcap}
 
