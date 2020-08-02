@@ -1,2 +1,12 @@
 %Literaturverzeichnis erstellen
-\printbibliography
+\printbibliography[notkeyword=Quelle,heading=bibintoc]
+\newpage
+
+%Quellenverzeichnis erstellen
+\printbibliography[keyword=Quelle,title={Quellenverzeichnis},heading=bibintoc]
+\newpage
+
+%Stichwortverzeichnis erstellen
+\addcontentsline{toc}{section}{Stichwortverzeichnis}
+\printindex
+\newpage

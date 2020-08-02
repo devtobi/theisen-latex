@@ -27,7 +27,13 @@
 
 \newcommand{\includewebcode}[2]{\lstinputlisting[caption=#1, style=htmlcssjs,label=lst:#2]{code/#2}}
 
-
 % Befehle für das Hinzufügen eines Eintrages in das Formelverzeichnis
 \newcommand{\equationentry}[1]{%
 \addcontentsline{equ}{equations}{\protect\numberline{\theequation}#1}\par}
+
+% Befehl für zusätzliche Spalte mit Einheiten in Symbolverzeichnis
+\newcommand{\acrounit}[1]{
+  \acroextra{
+    \hspace{15mm}\makebox[20mm][l]{\si[per-mode=fraction,fraction-function=\sfrac]{#1}}
+  }
+}

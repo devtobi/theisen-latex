@@ -5,7 +5,7 @@
 \include{commands}
 
 % Festlegen der Dokumentenklasse
-\documentclass[\maintextsize, \papersize, fleqn, xcolor=dvipsnames]{scrartcl}
+\documentclass[\maintextsize, \papersize, fleqn, xcolor=dvipsnames,chapterprefix]{scrartcl}
 
 % Metadatenangaben
 \author{\thesisauthor}
@@ -43,13 +43,16 @@
 \pagestyle{fancy}
 	
 %Vorverzeichnisse einbinden
-\include{preindex}
+\include{preindex/preindex}
 
 %Vortexte einbinden
 \include{pretext/pretext}
 
 %Text einbinden
 \include{sections/sections}
+
+%Anhang einbinden
+\include{appendix/appendix}
 		
 %Nachtexte einbinden
 \include{posttext/posttext}

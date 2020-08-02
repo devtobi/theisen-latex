@@ -1,5 +1,10 @@
 %%% === BEGINN DER KONFIGURATION === %%%
 
+% Stichwortverzeichnis
+\usepackage{makeidx}
+\makeindex
+\renewcommand{\indexname}{Stichwortverzeichnis}
+
 % PDF-Inhalt such- und kopierbar machen
 \usepackage[resetfonts]{cmap}
 
@@ -35,6 +40,8 @@
 \usepackage[perpage, flushmargin, hang]{footmisc}
 \setlength{\footnotemargin}{4mm}
 
+
+
 % Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
 \usepackage{tocbibind}
 \usepackage{tocloft}
@@ -56,6 +63,7 @@
 
 % Mathematik-Pakete
 \usepackage{amsmath,amsthm,amssymb}
+\usepackage{siunitx}
 \setlength{\mathindent}{1cm}
 
 % Automatisches Setzen von Anführungszeichen (\enquote, \foreignquote, \blockquote)
@@ -63,15 +71,6 @@
 
 % Einbinden von PDFs
 \usepackage{pdfpages}
-
-% Beschriftung von Bildern/Tabellen/Listings usw.
-\usepackage[
-	format=plain,
-	margin=0.5cm,
-	labelformat=simple,
-	labelfont={bf},
-	font=footnotesize
-]{caption}
 
 % Erlaubt die Erstellung von zusammengesetzten Grafiken
 \usepackage{subcaption}
@@ -214,8 +213,16 @@
   {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
   {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
 }
-
 %%% === ENDE LISTINGS === %%%
+
+% Beschriftung von Bildern/Tabellen/Listings usw.
+\usepackage[
+	format=plain,
+	margin=0.5cm,
+	labelformat=simple,
+	labelfont={bf},
+	font=footnotesize
+]{caption}
 
 % Literaturverzeichnis & Chicago-Stil einrichten
 \usepackage[
