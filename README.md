@@ -57,7 +57,8 @@ The link to the book can be found <a href="http://www.vahlen.de/productview.aspx
 
 ### Prerequisites
 
-- Functional LaTex installation
+- Functional LaTex installation#
+- tbd
 
 <!-- CONTRIBUTING -->
 
