@@ -224,16 +224,24 @@
 	font=footnotesize
 ]{caption}
 
-% Literaturverzeichnis & Chicago-Stil einrichten
-\usepackage[
-authordate,
-backend=biber,
-bibencoding=inputenc,
-language=ngerman,
-footmarkoff,
-alwaysrange=true,
-natbib,
-]{biblatex-chicago}
+% Literaturverzeichnis & Harvard-Stil einrichten
+% Chicago-Stil
+%\usepackage[
+%authordate,
+%backend=biber,
+%bibencoding=inputenc,
+%language=ngerman,
+%footmarkoff,
+%alwaysrange=true,
+%natbib,
+%]{biblatex-chicago}
+%\renewcommand{\postnotedelim}{%
+%  \iffieldpages{postnote}
+%    {\addcomma\space S.}
+%    {\addspace}}
+
+% Harvard-Stil
+\usepackage[style=authoryear,backend=biber]{biblatex}
 \renewcommand*{\finentrypunct}{}
 \setlength\bibitemsep{0pt}
 \setlength\bibinitsep{10pt}
@@ -241,10 +249,7 @@ natbib,
 \renewcommand{\mkbibnamefirst}[1]{\mkbibemph{#1}}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \renewcommand{\UrlFont}{\footnotesize\ttfamily}
-\renewcommand{\postnotedelim}{%
-  \iffieldpages{postnote}
-    {\addcomma\space S.}
-    {\addspace}}
+
 \addbibresource{bibliography.bib}
 
 %Verlinkungen und PDF Daten initialisieren
@@ -259,7 +264,6 @@ natbib,
 	colorlinks = false,
 	linktoc = all,
 	linkbordercolor = {0 0 0.5},
-	hyperfootnotes = true
 }
 \usepackage[all]{hypcap}
 
