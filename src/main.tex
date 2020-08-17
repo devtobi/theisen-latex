@@ -17,6 +17,11 @@
 %%% === BEGINN DES DOKUMENTS === %%%
 \begin{document}
 
+%Quellcodelistingseinschub resetten
+\makeatletter
+\xpatchcmd\l@lstlisting{1.5em}{0em}{}{}
+\makeatother
+
 %Auf Deutsch stellen
 \selectlanguage{ngerman}
 

@@ -40,7 +40,9 @@
 \usepackage[perpage, flushmargin, hang]{footmisc}
 \setlength{\footnotemargin}{4mm}
 
-
+% Namensnennungen kursiv schreiben
+\usepackage{xpatch}
+\xpatchcmd{\citeauthor}{\begingroup}{\begingroup\em}{}{}
 
 % Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
 \usepackage{tocbibind}
@@ -49,6 +51,9 @@
 \setlength{\cftsubsecindent}{\idxsubsecindent}
 \setlength{\cftsubsubsecindent}{\idxsubsubsecindent}
 \setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+
 
 % Schönere Seitenangaben
 \usepackage{fancyhdr}
@@ -56,10 +61,6 @@
 \fancyhead[EL,OR]{\thepage}
 \fancyhead[ER]{\chaptername~\thechapter}
 \fancyhead[LO]{\nouppercase{\leftmark}}
-
-% Namensnennungen kursiv schreiben
-\usepackage{xpatch}
-\xpatchcmd{\citeauthor}{\begingroup}{\begingroup\em}{}{}
 
 % Mathematik-Pakete
 \usepackage{amsmath,amsthm,amssymb}
@@ -223,6 +224,11 @@
 	labelfont={bf},
 	font=footnotesize
 ]{caption}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+\AtBeginDocument{\counterwithin{lstlisting}{section}}
 
 % Literaturverzeichnis & Harvard-Stil einrichten
 % Chicago-Stil
