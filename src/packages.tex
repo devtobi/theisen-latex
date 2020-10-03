@@ -8,6 +8,9 @@
 % PDF-Inhalt such- und kopierbar machen
 \usepackage[resetfonts]{cmap}
 
+% Textschriftart ändern
+\usepackage{lmodern}
+
 % Anpassungen für deutsche Sprache + englische Sprache
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,8 +24,47 @@
 \graphicspath{{images/}}
 \usepackage{float}
 
-% Textschriftart ändern
-\usepackage{lmodern}
+% Diagramme, Plots uvm.
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tikz-cd}
+\usepackage{tikz-dependency}
+\usepackage{tikz-inet}
+\usepackage{tikz-qtree}
+\usepackage{tikz-qtree-compat}
+\usepackage{tikz-timing}
+\usepackage{tikz-timing-overlays}
+\usepackage{tikz-timing-nicetabs}
+\usepackage{tikz-timing-interval}
+\usepackage{tikz-timing-ifsym}
+\usepackage{tikz-timing-either}
+\usepackage{tikz-timing-counters}
+\usepackage{tikz-timing-columntype}
+\usepackage{tikz-timing-clockarrows}
+\usepackage{tikz-timing-arrows}
+\usepackage{tikz-timing-advnodes}
+\usetikzlibrary{graphs}
+\usetikzlibrary{automata}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{calendar}
+\usetikzlibrary{chains}
+\usetikzlibrary{er}
+\usetikzlibrary{intersections}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{matrix}
+\usetikzlibrary{patterns}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations}
+\usetikzlibrary{topaths}
+\usetikzlibrary{trees}
+
+%\usetikzlibrary{graphdrawing} Funktioniert nicht mit pdfLaTeX
 
 % Verbessertes Fontrendering
 \usepackage[final]{microtype}

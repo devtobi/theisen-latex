@@ -18,6 +18,7 @@
 \listoftables
 \newpage
 
+% Quellcodeverzeichnis
 \renewcommand{\lstlistoflistings}{\begingroup
 \tocfile{\lstlistingname}{lol}
 \endgroup}
@@ -29,16 +30,16 @@
 \input{preindex/abbreviations}
 \newpage
 
+% Symbolverzeichnis erstellen
+\input{preindex/symbols}
+\newpage
+
 % Formelverzeichnis erstellen
 \newlistof{equations}{equ}{Formelverzeichnis}
 \renewcommand{\listofequations}{\begingroup
 \tocfile{Formelverzeichnis}{equ}
 \endgroup}
 \listofequations
-\newpage
-
-% Symbolverzeichnis erstellen
-\input{preindex/symbols}
 \newpage
 
 \endgroup
