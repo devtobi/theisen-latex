@@ -58,6 +58,7 @@ The link to the book can be found <a href="http://www.vahlen.de/productview.aspx
 ### Prerequisites
 
 - Functional LaTex installation (Windows: MikTeX / Mac: MacTeX)
+- Use LuaLaTeX for compilation
 
 <!-- CONTRIBUTING -->
 
