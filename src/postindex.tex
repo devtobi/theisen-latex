@@ -1,12 +1,22 @@
-%Literaturverzeichnis erstellen
-\printbibliography[notkeyword=Quelle,heading=bibintoc]
+% Kombiniertes Literatur- und Quellenverzeichnis erstellen
+
+\begingroup
+\sloppy
+%\RaggedRight %% needs package ragged2e
+\printbibliography[heading=bibintoc, title={Literatur- und Quellenverzeichnis}]
+\endgroup
 \newpage
+
+
+%Literaturverzeichnis erstellen
+%\printbibliography[notkeyword=Quelle,heading=bibintoc]
+%\newpage
 
 %Quellenverzeichnis erstellen
-\printbibliography[keyword=Quelle,title={Quellenverzeichnis},heading=bibintoc]
-\newpage
+%\printbibliography[keyword=Quelle,title={Quellenverzeichnis},heading=bibintoc]
+%\newpage
 
 %Stichwortverzeichnis erstellen
-\addcontentsline{toc}{section}{Stichwortverzeichnis}
-\printindex
-\newpage
+%\addcontentsline{toc}{section}{Stichwortverzeichnis}
+%\printindex
+%\newpage

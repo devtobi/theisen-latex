@@ -5,8 +5,14 @@
 \makeindex
 \renewcommand{\indexname}{Stichwortverzeichnis}
 
+% Silbentrennung
+\hyphenation{Au-dio-de-skrip-ti-on Sprach-er-ken-nung Ver-sions-sprung}
+
 % PDF-Inhalt such- und kopierbar machen
 \usepackage[resetfonts]{cmap}
+
+% Querformat erlauben
+\usepackage{pdflscape}
 
 % Textschriftart ändern
 \usepackage{lmodern}
@@ -18,6 +24,18 @@
 
 % Mehr Farben zulassen
 \usepackage[table,dvipsnames]{xcolor}
+%\usepackage{color}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
 
 % Grafiken
 \usepackage{graphicx}
@@ -87,7 +105,8 @@
 \xpatchcmd{\citeauthor}{\begingroup}{\begingroup\em}{}{}
 
 % Inhaltsverzeichnis Aussehen konfigurieren und ins Inhaltsverzeichnis mit aufnehmen
-\usepackage{tocbibind}
+%\usepackage{tocbibind}
+\usepackage[nottoc]{tocbibind}
 \usepackage{tocloft}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \setlength{\cftsubsecindent}{\idxsubsecindent}
@@ -96,6 +115,8 @@
 \setlength{\cftfigindent}{0pt}
 \setlength{\cfttabindent}{0pt}
 
+% Verhindern, dass Elemente außerhalb des aktuellen Kapitels platziert werden
+\usepackage[section]{placeins}
 
 % Schönere Seitenangaben
 \usepackage{fancyhdr}
@@ -120,23 +141,31 @@
 
 % Leere Anfangs- und Endzeilen vermeiden
 \usepackage[defaultlines=4,all]{nowidow}
+\widowpenalties 3 10000 10000 150
+\clubpenalty 10000
 
 % Bessere Aufzählungen
 \usepackage{paralist}
 
 % Bessere Tabellen
 \usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 
 % Euro-Zeichen
 \usepackage[official]{eurosym}
 
 % Abkürzungen
-\usepackage[footnote, printonlyused, smaller]{acronym}
+\usepackage[footnote, printonlyused]{acronym}
 
 %%% === LISTINGS === %%%
 \usepackage{listings}
 \usepackage{beramono}
-\renewcommand{\lstlistingname}{Quellcode}
+\renewcommand{\lstlistingname}{Quelltext}
 
 % CSS als Sprache definieren
 \lstdefinelanguage{CSS}{
@@ -152,7 +181,7 @@
 
 % JavaScript als Sprache definieren
 \lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, null, true, false, switch, this, throw, try, typeof, var, void, while, with},
+  keywords={break, case, catch, continue, debugger, delete, do, else, finally, for, function, if, instanceof, new, return, null, true, false, switch, this, throw, try, typeof, var, void, while, with, let, const},
   ndkeywords={class, export, boolean, throw, implements, import, this},
   sensitive=true,
   morecomment=[l]{//},
@@ -166,7 +195,7 @@
   language=html,
   sensitive=true,	
   alsoletter={<>=-},	
-  morecomment=[s]{<!-}{-->},
+  morecomment=[s]{<!--}{-->},
   tag=[s],
   otherkeywords={
   % General
@@ -190,7 +219,7 @@
 	% scripts
 	</script, <script,
   % More tags...
-  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article, <strong, </strong, <a, </a, <nav, </nav, <main, </main, <footer, </footer, <img, </img, <figure, </figure, <figcaption, </figcaption, <track, </video, <label, </label, <input, <audio, </audio, <fieldset, </fieldset, <legend, </legend, <span, </span, <form, </form, <br, <kbd, </kbd, <li, </li, <ul, </ul, <link, </link
   },
   ndkeywords={
   % General
@@ -208,39 +237,43 @@
   }
 }
 
-% Kombination aus HTML,CSS,JS als Style definieren
 \lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=single,
+  captionpos=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  numberstyle=\color{Gray},
+  rulesepcolor=\color{lightgray},
   % Code
   language=HTML5,
   alsolanguage=JavaScript,
   alsodigit={.:;},	
-}
-
-\lstset{
-	breaklines=true,
-	breakatwhitespace=false,
-	captionpos=b,
-	frame=shadowbox,
-	columns=flexible,
-	keepspaces=false,
-	numbers=left,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	identifierstyle=\color{black},
-	ndkeywordstyle=\color{MidnightBlue}\bfseries,
-	basicstyle=\footnotesize\ttfamily,
-	numberstyle=\color{Gray},
-	keywordstyle=\bfseries\color{RoyalBlue},
-	commentstyle=\color{ForestGreen},
-	stringstyle=\color{Orange},
-	xleftmargin={0.75cm},
-	tabsize=2,
-	extendedchars=true,
-	inputencoding=utf8,
-	resetmargins=true,
-	rulesepcolor=\color{lightgray},
-	literate=
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=flexible,
+  keepspaces=false,
+  inputencoding=utf8,
+  resetmargins=true,
+  % German umlauts
+  literate=
   {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
   {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
   {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
@@ -256,6 +289,89 @@
   {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
   {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
 }
+
+\lstdefinestyle{htmlcssjs_appendix} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\tiny\ttfamily},   
+  frame=single,
+  captionpos=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  numberstyle=\color{Gray},
+  rulesepcolor=\color{lightgray},
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=flexible,
+  keepspaces=false,
+  inputencoding=utf8,
+  resetmargins=true,
+  % German umlauts
+  literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+\lstset{
+%	breaklines=true,
+%	breakatwhitespace=false,
+%	captionpos=b,
+%	frame=shadowbox,
+%	columns=flexible,
+%	keepspaces=false,
+%	numbers=left,
+%	showspaces=false,
+%	showstringspaces=false,
+%	showtabs=false,
+%	identifierstyle=\color{black},
+%	ndkeywordstyle=\color{MidnightBlue}\bfseries,
+%	basicstyle=\footnotesize\ttfamily,
+%	numberstyle=\color{Gray},
+%	keywordstyle=\bfseries\color{RoyalBlue},
+%	commentstyle=\color{ForestGreen},
+%	stringstyle=\color{Orange},
+%	xleftmargin={0.75cm},
+%	tabsize=2,
+%	extendedchars=true,
+%	inputencoding=utf8,
+%	basicstyle=\ttfamily
+%	resetmargins=true,
+%	rulesepcolor=\color{lightgray},
+}
+
+\lstset{basicstyle=\ttfamily}
+
 %%% === ENDE LISTINGS === %%%
 
 % Beschriftung von Bildern/Tabellen/Listings usw.
@@ -264,7 +380,8 @@
 	margin=0.5cm,
 	labelformat=simple,
 	labelfont={bf},
-	font=footnotesize
+	font=footnotesize,
+	justification=centering
 ]{caption}
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -314,5 +431,16 @@
 	linkbordercolor = {0 0 0.5},
 }
 \usepackage[all]{hypcap}
+
+% Autoref Bezeichnungen ändern
+\addto\extrasngerman{%
+  \def\sectionautorefname{Kapitel}%
+}
+\addto\extrasngerman{%
+  \def\subsectionautorefname{Abschnitt}%
+}
+\addto\extrasngerman{%
+  \def\subsubsectionautorefname{Unterabschnitt}%
+}
 
 %%% === ENDE DER KONFIGURATION === %%%

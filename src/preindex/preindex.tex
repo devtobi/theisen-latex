@@ -1,7 +1,20 @@
+\newgeometry{left=\leftpapermargin,right=\rightpapermargin,top=\titlemargin,bottom=\titlemargin}
 \begingroup
 
 % Header auch für Seiten ohne Kopfzeile einfügen
 \fancypagestyle{plain}
+
+% Einfügen der Kurzzusammenfassung (alternativ erst im pretext)
+%\markboth{Kurzzusammenfassung}{Kurzzusammenfassung}
+%\phantomsection
+%\input{pretext/kurzzusammenfassung}
+%\newpage
+
+% Einfügen des Abstract (alternativ erst im pretext)
+%\markboth{Abstract}{Abstract}
+%\phantomsection
+%\input{pretext/abstract}
+%\newpage
 
 % Zeilenabstand ändern
 \singlespacing
@@ -15,31 +28,31 @@
 \newpage
 
 % Tabellenverzeichnis einfügen
-\listoftables
-\newpage
+%\listoftables
+%\newpage
 
 % Quellcodeverzeichnis
-\renewcommand{\lstlistoflistings}{\begingroup
-\tocfile{\lstlistingname}{lol}
-\endgroup}
-\renewcommand{\lstlistingname}{Quellcodeverzeichnis}
-\lstlistoflistings
-\newpage
+%\renewcommand{\lstlistoflistings}{\begingroup
+%\tocfile{\lstlistingname}{lol}
+%\endgroup}
+%\renewcommand{\lstlistingname}{Quelltextverzeichnis}
+%\lstlistoflistings
+%\newpage
 
 % Abkürzungsverzeichnis einfügen
-\input{preindex/abbreviations}
-\newpage
+%\input{preindex/abbreviations}
+%\newpage
 
 % Symbolverzeichnis erstellen
-\input{preindex/symbols}
-\newpage
+%\input{preindex/symbols}
+%\newpage
 
 % Formelverzeichnis erstellen
-\newlistof{equations}{equ}{Formelverzeichnis}
-\renewcommand{\listofequations}{\begingroup
-\tocfile{Formelverzeichnis}{equ}
-\endgroup}
-\listofequations
-\newpage
+%\newlistof{equations}{equ}{Formelverzeichnis}
+%\renewcommand{\listofequations}{\begingroup
+%\tocfile{Formelverzeichnis}{equ}
+%\endgroup}
+%\listofequations
+%\newpage
 
 \endgroup

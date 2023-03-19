@@ -16,18 +16,22 @@
 % Eigener Befehl für autoref + Seitenangabe
 \newcommand{\autorefpage}[1]{\autoref{#1} (siehe Seite \pageref{#1})}
 
-% Befehl für Quellenangaben direkt unter dem Bild (rechts)
+% Eigener Befehl für Sekundärzitat
+\newcommand{\secondarycite}[4]{
+	(\cite[#3]{#4}
+	zit. n. \cite[#1]{#2})
+}
+
+% Befehle für Quellenangaben
 \newcommand*{\sourceright}[1]{\par\raggedleft\footnotesize \textit{Quelle}:~#1}
-
 \newcommand*{\sourceplaceholder}{\par\raggedleft\footnotesize\phantom{\textit{Quelle}}}
-
-% Befehl für Quellenangaben direkt unter dem Bild (zentriert)
+\newcommand*{\sourceafterright}[1]{\par\raggedleft\footnotesize \textit{Nach Quelle}:~#1}
 \newcommand*{\sourcecenter}[1]{\par\centering\footnotesize \textit{Quelle}:~#1}
+\newcommand*{\sourceaftercenter}[1]{\par\centering\footnotesize \textit{Nach Quelle}:~#1}
 
-% Befehle für das inkludieren von Source Files
+% Befehle für das Inkludieren von Source Files
 \newcommand{\includecode}[3]{\lstinputlisting[caption=#2, language=#1,label=lst:#3]{code/#3}}
-
-\newcommand{\includewebcode}[2]{\lstinputlisting[caption=#1, style=htmlcssjs,label=lst:#2]{code/#2}}
+\newcommand{\includewebcode}[2]{\lstinputlisting[caption={#1}, style=htmlcssjs_appendix,label=lst:#2]{code/#2}}
 
 % Befehle für das Hinzufügen eines Eintrages in das Formelverzeichnis
 \newcommand{\equationentry}[1]{%
@@ -38,4 +42,18 @@
   \acroextra{
     \hspace{15mm}\makebox[20mm][l]{\si[per-mode=fraction,fraction-function=\sfrac]{#1}}
   }
+}
+
+% Befehl für einfachere Link-Fußnoten
+\newcommand{\hyperfootnote}[1][]{\def\ArgI{{#1}}\hyperfootnoteRelay}
+  % relay to new command to make extra optional command possible
+\newcommand\hyperfootnoteRelay[2][]{\href{#1#2}{\ArgI}\footnote{\href{#1#2}{#2}}}
+  % the first optional argument is now in \ArgI, the second is in #1
+  
+% Befehl für stacked-Balken-Diagramme (bzw. Umschalten zu neuem Balken in Gruppe)
+\newcommand{\resetstackedplots}{
+	\makeatletter
+	\pgfplots@stacked@isfirstplottrue
+	\makeatother
+	\addplot [forget plot,draw=none] coordinates{(1,0) (2,0) (3,0)};
 }

@@ -1,18 +1,22 @@
 % Import der Config-Variablen
-\include{config}
+\input{config}
 
 % Import der Befehle
-\include{commands}
+\input{commands}
 
 % Festlegen der Dokumentenklasse
 \documentclass[\maintextsize, \papersize, fleqn, xcolor=dvipsnames,chapterprefix, tikz]{scrartcl}
 
 % Metadatenangaben
+\subject{\thesistype}
 \author{\thesisauthor}
 \title{\thesistitle}
+\subtitle{\thesissubtitle}
+\date{\submissiondate}
+\publishers{\supervisor}
 
 % Einbinden der Abhängigkeiten
-\include{packages}
+\input{packages}
 
 %%% === BEGINN DES DOKUMENTS === %%%
 \begin{document}
@@ -32,20 +36,24 @@
 
 %Seitennummerierung abschalten
 \pagestyle{empty}
+\pagenumbering{gobble}	
 	
 %Deckblatt einbinden
 \include{titlepage}
-\newpage
+
+%Eidesstattliche Erklärung einbinden (alternativ weiter unten)
+%\include{erklaerung}
+%\includepdf{erklaerung}
 	
 %Leere Seite einfügen (Hier könnte z.B die handschriftliche Widmung stehen)
 \mbox{}
 \newpage
 
-%Sperrvermerk einbinden
-\include{sperrvermerk}
-	
-%Seitenangaben aktivieren
+%Kopfzeile anzeigen
 \pagestyle{fancy}
+
+%Sperrvermerk einbinden
+%\include{sperrvermerk}
 	
 %Vorverzeichnisse einbinden
 \include{preindex/preindex}
@@ -53,11 +61,14 @@
 %Vortexte einbinden
 \include{pretext/pretext}
 
+%Arabische Seitenzählung aktivieren
+\pagenumbering{arabic}
+
 %Text einbinden
 \include{sections/sections}
 
-%Anhang einbinden
-\include{appendix/appendix}
+%Seitennummierung ausschalten
+\pagenumbering{gobble}
 		
 %Nachtexte einbinden
 \include{posttext/posttext}
@@ -65,11 +76,22 @@
 %Nachverzeichnisse einbinden
 \include{postindex}
 
+%Anhang einbinden
+\include{appendix/appendix}
+
+%Seitenangaben deaktivieren
+\pagestyle{empty}
+
 %Eidesstattliche Erklärung einbinden	
-\include{erklaerung}
+%\include{erklaerung}
 
 %Kalibrierungsbox einbinden (Vor dem Binden das entfernen der Seite nicht vergessen)
 \calibrationbox{140}{100}
+\newpage
+
+%Leere Seite einfügen
+\mbox{}
+\newpage
 	
 %%% === ENDE DES DOKUMENTS === %%%
 \end{document}
